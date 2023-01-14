@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-        <title>E R M S - Category | Egodawatta Hill Side</title>
+        <title>E R M S - Package Details | Egodawatta Hill Side</title>
 
         <meta name="description" content="" />
 
@@ -19,19 +19,14 @@
                 font-size: 20px !important;
             }
 
-            .input-class{
-                border-radius: 5px !important;          
+            table{
+                margin: 35px auto 0 auto !important;
+                max-width: 99% !important;
             }
 
-            .btn_submit{
-                margin-left: 10px !important;
-                background-color: #696cff !important;
-            }
-            
-            table{
-                margin-left: auto !important;
-                margin-right: auto !important;
-                max-width: 99% !important;
+            .img-size{
+                height: 100px;
+                weight: 1000px !important;
             }
         </style>
         
@@ -61,30 +56,32 @@
                 @endif
 
                 <div class="row">
-                    <h1 class="pt-4">Add Category</h1>
+                    <h1 class="pt-4">Package Details</h1>
                     <hr>
-                    <form action="{{url('/add_Category')}}" method="POST" class=py-4>
-                        @csrf
-                        <div class="form-group text-center">
-                            <input type="text" name="Category"  class="input-class" id="" placeholder="Enter Category Name here...">
-                            <input type="submit" value="Add Category" name="submit" class="btn btn-primary btn_submit">
-                        </div>
-                    </form>
                         
                     <table class="table text-center">
                         <thead class="table-header">
                             <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Category Name</th>
+                            <th scope="col">Package Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Discount_Price</th>
+                            <th scope="col">Description</th>
                             <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($data as $data)
+                            @foreach($Package_Data as $Package_Data)
                                 <tr>
-                                <td>{{$data->id}}</td>
-                                <td>{{$data->Category_name}}</td>
-                                <td><a onclick="return confirm('Are you sure you want to delete this record?')" href="{{url('delete_Category', $data->id)}}" class="btn btn-danger">Delete</a></td>
+                                <td>{{$Package_Data->id}}</td>
+                                <td>{{$Package_Data->Package_name}}</td>
+                                <td>{{$Package_Data->Price}}</td>
+                                <td>{{$Package_Data->Discount_Price}}</td>
+                                <td>{{$Package_Data->Description}}</td>   
+                                <td>
+                                    <a href="{{url('edit_Package', $Package_Data->id)}}" class="btn btn-success">Edit</a>
+                                    <a onclick="return confirm('Are you sure you want to delete this record?')" href="{{url('delete_Package', $Package_Data->id)}}" class="btn btn-danger">Delete</a>
+                                </td>
                                 </tr>
                             @endforeach
                         </tbody>

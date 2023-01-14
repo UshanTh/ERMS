@@ -41,7 +41,7 @@
                 </a>
                 <ul class="menu-sub">
                     <li class="menu-item">
-                    <a href="{{url('/view_Menu')}}" class="menu-link">
+                    <a href="{{url('/admin_view_Menu')}}" class="menu-link">
                         <div data-i18n="Account">Add Menu</div>
                     </a>
                     </li>
@@ -54,68 +54,118 @@
                 </li>
 
                 <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Supplier Management</span>
+                <span class="menu-header-text">Order Management</span>
+                </li>
+                <li class="menu-item">
+                <a href="{{url('view_Orders')}}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-layout"></i>
+                    <div data-i18n="Analytics">Show Orders</div>
+                </a>
+                </li>
+                
+
+                <li class="menu-header small text-uppercase">
+                    <span class="menu-header-text">Supplier Management</span>
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                        <div data-i18n="Account Settings">Manage Suppliers</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                        <a href="{{url('/show_suppliers')}}" class="menu-link">
+                            <div data-i18n="Account">Add Suppliers</div>
+                        </a>
+                        </li>
+                        <li class="menu-item">
+                        <a href="{{url('/show_supplier_details')}}" class="menu-link">
+                            <div data-i18n="Notifications">Show Suppliers</div>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">Inventory Management</span>
                 </li>
                 <li class="menu-item">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                    <div data-i18n="Account Settings">Manage Suppliers</div>
+                    <div data-i18n="Account Settings">Manage Inventory</div>
                 </a>
                 <ul class="menu-sub">
                     <li class="menu-item">
-                    <a href="{{url('/view_Menu')}}" class="menu-link">
-                        <div data-i18n="Account">Add Suppliers</div>
+                    <a href="{{url('/show_Add_Inventory')}}" class="menu-link">
+                        <div data-i18n="Account">Add Inventory</div>
                     </a>
                     </li>
                     <li class="menu-item">
-                    <a href="{{url('/show_Menu')}}" class="menu-link">
-                        <div data-i18n="Notifications">Show Suppliers</div>
+                    <a href="{{url('/show_Inventory_details')}}" class="menu-link">
+                        <div data-i18n="Notifications">Show Inventory</div>
                     </a>
                     </li>
                 </ul>
                 </li>
 
+                <li class="menu-header small text-uppercase">
+                    <span class="menu-header-text">Staff Management</span>
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                        <div data-i18n="Account Settings">Manage Staff</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                        <a href="{{url('/add_staff_page')}}" class="menu-link">
+                            <div data-i18n="Account">Add Staff</div>
+                        </a>
+                        </li>
+                        <li class="menu-item">
+                        <a href="{{url('/show_Staff_details')}}" class="menu-link">
+                            <div data-i18n="Notifications">Show Staff</div>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">Booking Management</span>
+                </li>
                 <li class="menu-item">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                    <div data-i18n="Authentications">Authentications</div>
+                    <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                    <div data-i18n="Account Settings">Manage Packages</div>
                 </a>
                 <ul class="menu-sub">
                     <li class="menu-item">
-                    <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">Login</div>
+                    <a href="{{url('/show_Add_Packages')}}" class="menu-link">
+                        <div data-i18n="Account">Add Packages</div>
                     </a>
                     </li>
                     <li class="menu-item">
-                    <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">Register</div>
-                    </a>
-                    </li>
-                    <li class="menu-item">
-                    <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">Forgot Password</div>
+                    <a href="{{url('/show_Package_details')}}" class="menu-link">
+                        <div data-i18n="Notifications">Show Packages</div>
                     </a>
                     </li>
                 </ul>
                 </li>
-                <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                    <div data-i18n="Misc">Misc</div>
-                </a>
-                <ul class="menu-sub">
                     <li class="menu-item">
-                    <a href="pages-misc-error.html" class="menu-link">
-                        <div data-i18n="Error">Error</div>
-                    </a>
+                        <a href="{{url('view_Category')}}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-layout"></i>
+                            <div data-i18n="Analytics">Manage Booking</div>
+                        </a>
                     </li>
-                    <li class="menu-item">
-                    <a href="pages-misc-under-maintenance.html" class="menu-link">
-                        <div data-i18n="Under Maintenance">Under Maintenance</div>
-                    </a>
-                    </li>
-                </ul>
+
+                    <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">User Management</span>
                 </li>
-                
+                    <li class="menu-item">
+                        <a href="{{url('view_User')}}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-layout"></i>
+                            <div data-i18n="Analytics">Manage Users</div>
+                        </a>
+                    </li>
             </ul>
         </aside>

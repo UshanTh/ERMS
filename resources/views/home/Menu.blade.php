@@ -1,18 +1,44 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<!-- 
 
--->
     <head>
         <meta charset="utf-8">
         <title>Menu | Egodawatta Hill Side</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
         
         @include('home.css')
+
+        <style type="text/css">
+            .menu_image{
+                weight: 300px !important; 
+                height: 300px !important;
+            }
+
+            .add_icon{
+                margin: auto !important;
+                padding-top: 25px;
+            }
+
+            form{
+                /* position: relative; */
+                width: 100% !important;
+                margin-top: 10px !important;
+                /* margin-right: auto !important;
+                margin-left: auto !important;
+                 */
+            }
+
+            .form-control{
+                border-radius: 5px !important; 
+            }
+
+            .form-group{
+                margin-right: auto !important;
+                margin-left: auto !important;
+                /* background-color: red; */
+            }
+
+        </style>
     </head>
     <body>
 
@@ -60,16 +86,30 @@
                         <div class="col-md-3 col-sm-6 mix portfolio-item Pizza">       
                             <div class="portfolio-wrapper">                
                                 <div class="portfolio-thumb">
-                                    <img src="Menu/{{$records->Image}}" alt="" weight="300px" height="300px"/>
+                                    <img src="Menu/{{$records->Image}}" alt="" class="menu_image" weight="300px !important;" height="300px !important;"/>
                                     <div class="hover">
                                         <div class="hover-iner">
-                                            <a class="fancybox" href="home/images/product1_big.jpg"><img src="home/images/open-icon.png" alt="" /></a>
+                                            <a class="fancybox" href="Menu/{{$records->Image}}"><img src="home/images/open-icon.png" alt="" class="add_icon"/></a>
                                             <span style="padding-top: 15px;">{{$records->menu_Name}}</span>
+
+                                            <form action="{{url('add_cart',$records->id)}}" method="post">
+                                                @csrf
+                                                <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <input type="number" name="Qty" id="" class="form-control" value="1" min="1">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <input type="submit" value="Add" class="form-control btn btn-primary">
+                                                </div>
+                                                </div>
+                                            </form>
                                         </div>
+                                        
+                                        
                                     </div>
                                 </div>  
                                 <div class="label-text">
-                                    <h3><a href="single-post.html">{{$records->menu_Name}}</a></h3>
+                                    <h3><a href="{{url('Menu_details', $records->id)}}">{{$records->menu_Name}}</a></h3>
                                     
                                     <!-- if discount price is not null show discount price and cut the price -->
                                     @if($records->Discount_price!=null) 

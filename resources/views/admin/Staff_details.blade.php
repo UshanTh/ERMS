@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-        <title>E R M S - Category | Egodawatta Hill Side</title>
+        <title>E R M S - Employee Details | Egodawatta Hill Side</title>
 
         <meta name="description" content="" />
 
@@ -19,19 +19,14 @@
                 font-size: 20px !important;
             }
 
-            .input-class{
-                border-radius: 5px !important;          
+            table{
+                margin: 35px auto 0 auto !important;
+                max-width: 99% !important;
             }
 
-            .btn_submit{
-                margin-left: 10px !important;
-                background-color: #696cff !important;
-            }
-            
-            table{
-                margin-left: auto !important;
-                margin-right: auto !important;
-                max-width: 99% !important;
+            .img-size{
+                height: 100px;
+                weight: 1000px !important;
             }
         </style>
         
@@ -61,30 +56,42 @@
                 @endif
 
                 <div class="row">
-                    <h1 class="pt-4">Add Category</h1>
+                    <h1 class="pt-4">Staff Details</h1>
                     <hr>
-                    <form action="{{url('/add_Category')}}" method="POST" class=py-4>
-                        @csrf
-                        <div class="form-group text-center">
-                            <input type="text" name="Category"  class="input-class" id="" placeholder="Enter Category Name here...">
-                            <input type="submit" value="Add Category" name="submit" class="btn btn-primary btn_submit">
-                        </div>
-                    </form>
                         
                     <table class="table text-center">
                         <thead class="table-header">
                             <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Category Name</th>
+                            <th scope="col">Employee Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Tell No</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($data as $data)
+                            @foreach($staff_details as $staff_details)
                                 <tr>
-                                <td>{{$data->id}}</td>
-                                <td>{{$data->Category_name}}</td>
-                                <td><a onclick="return confirm('Are you sure you want to delete this record?')" href="{{url('delete_Category', $data->id)}}" class="btn btn-danger">Delete</a></td>
+                                <td>{{$staff_details->id}}</td>
+                                <td>{{$staff_details->name}}</td>
+                                <td>{{$staff_details->email}}</td>
+                                <td>{{$staff_details->tell_no}}</td>
+                                <td>{{$staff_details->Address}}</td>
+                                <td>{{$staff_details->Category}}</td>
+
+                                @if($staff_details->Status=='Active')
+                                    <td style="color: green;">{{$staff_details->Status}}</td>
+                                @else
+                                    <td style="color: red;">{{$staff_details->Status}}</td>
+                                @endif
+                                
+                                <td>
+                                    <a href="{{url('edit_Staff', $staff_details->id)}}" class="btn btn-success">Edit</a>
+                                    <a onclick="return confirm('Are you sure you want to delete this record?')" href="{{url('delete_Staff', $staff_details->id)}}" class="btn btn-danger">Delete</a>
+                                </td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -103,7 +103,7 @@
     </div>
 
     <!-- Js tags start -->
-        <!-- @include('admin.script') -->
+        @include('admin.script')
     <!-- Js tags end -->
   </body>
 </html>
